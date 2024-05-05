@@ -16,9 +16,13 @@ Python library:
 # Other things that are required to be installed are:
 
 moviepy: ```pip install moviepy```,
+
 opencv: ```pip install opencv-python```,
+
 pydub: ```pip install pydub```,
+
 special pyttsx3: ```python3 -m pip install git+https://github.com/nateshmbhat/pyttsx3```
+
 
 
 # What to do?
