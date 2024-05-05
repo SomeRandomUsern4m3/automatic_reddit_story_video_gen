@@ -1,4 +1,4 @@
-# Important note
+# Important note - Also PLEASE read the whole thing I have here. it is important to setting up this program
 ## Your gonna need to add the folder game_footage because stupid github won't let me add it
 
 # What is this?
