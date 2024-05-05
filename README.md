@@ -6,6 +6,8 @@
 
 # You will need FFMPEG and its library
 FFMPEG: https://www.wikihow.com/Install-FFmpeg-on-Windows
+
+Python library:
 ```pip install ffmpeg-python```
 
 
