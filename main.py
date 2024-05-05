@@ -2,7 +2,6 @@ import ffmpeg
 from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
 import random
 import os
-from mutagen.mp3 import MP3
 import cv2
 import pydub
 from pydub import AudioSegment
