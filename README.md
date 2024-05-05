@@ -1,3 +1,6 @@
+# Important note
+## Your gonna need to add the folder game_footage because stupid github won't let me add it
+
 # What is this?
 
 ## This a project that I whipped up in a day it generates those ai reddit stories with the text to speech
