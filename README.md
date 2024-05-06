@@ -1,5 +1,7 @@
 # Important note - Also PLEASE read the whole thing I have here. it is important to setting up this program
 ## Your gonna need to add the folder game_footage because stupid github won't let me add it
+## Credit to https://github.com/abdeladim-s/subsai for the subtitle library. It is really helpful :)
+
 
 # What is this?
 
@@ -10,10 +12,15 @@
 # You will need FFMPEG and its library
 FFMPEG: https://www.wikihow.com/Install-FFmpeg-on-Windows
 
+
 Python library:
 ```pip install ffmpeg-python```
 
 # Other things that are required to be installed are:
+
+Most important is the rust build lib ```pip install setuptools-rust```
+
+subsAI: ```pip install git+https://github.com/abdeladim-s/subsai```
 
 moviepy: ```pip install moviepy```,
 
