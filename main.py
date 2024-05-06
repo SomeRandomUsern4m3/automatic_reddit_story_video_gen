@@ -4,6 +4,9 @@ import random
 import os
 import cv2
 import pydub
+import moviepy
+from moviepy.video.tools.subtitles import SubtitlesClip
+from subsai import SubsAI
 from pydub import AudioSegment
 import uuid
 import pyttsx3
@@ -24,7 +27,21 @@ def get_mp4_duration(filename):
     duration = frame_count / fps
     return duration
 
+def add_subtitle_to_video(soft_subtitle,input_video, subtitle_file,  subtitle_language):
 
+    video_input_stream = ffmpeg.input(input_video)
+    subtitle_input_stream = ffmpeg.input(subtitle_file)
+    output_video = f"output-{input_video}.mp4"
+    subtitle_track_title = subtitle_file.replace(".srt", "")
+
+    if soft_subtitle:
+        stream = ffmpeg.output(
+            video_input_stream, subtitle_input_stream, output_video, **{"c": "copy", "c:s": "mov_text"},
+            **{"metadata:s:s:0": f"language={subtitle_language}",
+            "metadata:s:s:0": f"title={subtitle_track_title}"}
+        )
+        ffmpeg.run(stream, overwrite_output=True)
+#params
 wait_time_between_title_and_story = 1
 
 
@@ -76,9 +93,23 @@ tag = uuid.uuid4()
 print("all good so far")
 ffmpeg.concat(input_video, input_audio, v=1, a=1).output(f'./reddit_story_{tag}.mp4').run()
 
+#subtitles
+subs_ai = SubsAI()
+model = subs_ai.create_model('openai/whisper', {'model_type': 'base'})
+subs = subs_ai.transcribe(f"./reddit_story_{tag}.mp4", model)
+subs.save('subs.srt')
+
+video_input_stream = ffmpeg.input(f'./reddit_story_{tag}.mp4')
+subtitle_file = "./subs.srt"
+output_video = f"reddit_story_subs_{tag}.mp4"
+stream = ffmpeg.output(video_input_stream, output_video,
+
+                        vf=f"subtitles={subtitle_file}")
+
+ffmpeg.run(stream, overwrite_output=True)
 
 #cleanup
-files_to_delete = [os.path.abspath("./tmp_full_audio_track.mp3"), os.path.abspath("./tmp_gameplay_footage.mp4"), os.path.abspath("./tmpstorytts.mp3"), os.path.abspath("./tmptitle.mp3")]
+files_to_delete = [os.path.abspath("./tmp_full_audio_track.mp3"), os.path.abspath("./tmp_gameplay_footage.mp4"), os.path.abspath("./tmpstorytts.mp3"), os.path.abspath("./tmptitle.mp3"), os.path.abspath("./subs.srt")]
 
 for i in files_to_delete:
     if os.path.isfile(i):
