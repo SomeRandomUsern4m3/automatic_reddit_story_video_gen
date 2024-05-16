@@ -1,5 +1,6 @@
 # Important note - Also PLEASE read the whole thing I have here. it is important to setting up this program
-## Your gonna need to add the folder game_footage because stupid github won't let me add it
+## Your gonna need to run dashboard.py first before anything.
+## Make sure all footage you put in game_footage is atleast 10 minutes long, I will fix this problem later
 ## Credit to https://github.com/abdeladim-s/subsai for the subtitle library. It is really helpful :)
 
 
@@ -28,7 +29,9 @@ opencv: ```pip install opencv-python```,
 
 pydub: ```pip install pydub```,
 
-special pyttsx3: ```python3 -m pip install git+https://github.com/nateshmbhat/pyttsx3```
+special pyttsx3: ```python3 -m pip install git+https://github.com/nateshmbhat/pyttsx3```,
+
+selenium: ```pip install selenium``` Make sure you have the firefox driver installed as well: https://www.mozilla.org/en-US/firefox/download/thanks/
 
 
 
