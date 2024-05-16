@@ -31,6 +31,8 @@ pydub: ```pip install pydub```,
 
 special pyttsx3: ```python3 -m pip install git+https://github.com/nateshmbhat/pyttsx3```,
 
+bs4: ```pip install beautifulsoup4```,
+
 selenium: ```pip install selenium``` Make sure you have the firefox driver installed as well: https://www.mozilla.org/en-US/firefox/download/thanks/
 
 
