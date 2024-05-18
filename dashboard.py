@@ -11,7 +11,7 @@ import threading
 class Program(ctk.CTk):
     def __init__(self):
         super().__init__()
-        self.geometry("900x900")
+        self.geometry("900x250")
         if not os.path.isdir("./game_footage"):
             os.mkdir("./game_footage")
         self.reddit_related_frame = ctk.CTkFrame(self)
