@@ -64,7 +64,7 @@ class Program(ctk.CTk):
         self.tmp_subtitles_val = bool(int(self.reddit_video_subtitle_option.get()) == 1)
         
         if self.tmp_optionmenu_val == "Loop Through All Stories":
-            self.thread_2 = threading.Thread(target=self.thread_for_making_random_videos)
+            self.thread_2 = threading.Thread(target=self.thread_for_making_all_videos)
             self.thread_2.start()
             self.make_reddit_video_button.configure(state="disabled")
         else:
